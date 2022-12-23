@@ -19,7 +19,6 @@ import Box from "@mui/system/Box";
 import Badge from "@mui/material/Badge";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem/MenuItem";
-import { Menu } from "@mui/material";
 
 export const AppBar: React.FC = () => {
   const [categories, setCategories] = React.useState<string[]>([]);

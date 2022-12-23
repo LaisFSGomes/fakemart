@@ -3,7 +3,7 @@ import { styled } from "@mui/system";
 
 export const AppBarWrapper = styled(Box)({
   height: "80px",
-  background: "#F1F1F1",
+  background: "#FFFFFF",
   display: "flex",
   padding: "0 20px",
   "@media (max-width: 600px)": {
