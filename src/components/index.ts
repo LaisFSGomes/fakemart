@@ -6,3 +6,4 @@ export { TextWithLimit } from "./TextWithLimit";
 export { GridProduct } from "./GridProduct";
 export { ValueDollar } from "./ValueDollar";
 export { PageResponsiveGrid } from "./PageResponsiveGrid";
+export { Input } from "./Input";
