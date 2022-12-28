@@ -1,8 +1,8 @@
 import { styled } from "@mui/system";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Typography, Box } from "@mui/material";
 
-export const LogoWrapper = styled(Box)({
+export const LogoWrapper = styled(Link)({
   display: "flex",
   flexDirection: "row",
   justifyContent: "center",
