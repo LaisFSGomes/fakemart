@@ -42,3 +42,8 @@ export interface User {
   };
   phone: string;
 }
+
+export interface Login {
+  username: string;
+  password: string;
+}
