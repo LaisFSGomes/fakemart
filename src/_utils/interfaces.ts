@@ -42,8 +42,23 @@ export interface User {
   };
   phone: string;
 }
-
 export interface Login {
   username: string;
   password: string;
+}
+export interface CartProviderProps {
+  children: React.ReactNode;
+}
+export interface CartContextProps {
+  products: ProductInfo[];
+  cart: CartInfo[];
+  setProducts: React.Dispatch<React.SetStateAction<ProductInfo[]>>;
+  getProduct: (id: number) => ProductInfo | undefined;
+  addToCart: (product: ProductInfo) => void;
+  removeFromCart: (id: number) => void;
+  removeAllCart: () => void;
+  incrementCart: (id: number) => void;
+  decrementCart: (id: number) => void;
+  getAmountItems: () => number;
+  getTotal: () => number;
 }
