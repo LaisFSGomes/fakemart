@@ -1,10 +1,10 @@
 import { AppBar, Banner, GridProduct, PageResponsiveGrid } from "components";
 import { api } from "config/api";
+import { CartContext } from "contexts";
 import React from "react";
-import { ProductInfo } from "_utils/interfaces";
 
 export const Home: React.FC = () => {
-  const [products, setProducts] = React.useState<ProductInfo[]>([]);
+  const { products, setProducts } = React.useContext(CartContext);
 
   const getProducts = async () => {
     const response = await api.get("/products");

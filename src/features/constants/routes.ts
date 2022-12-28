@@ -1,7 +1,7 @@
 export enum PagesRoutes {
     home = "/",
     cart = "/cart",
-    product = "/product",
+    product = "/product/:id",
     category = "/category",
     login = "/login",
     register = "/register",
