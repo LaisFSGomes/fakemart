@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Box, IconButton, Menu, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
@@ -8,6 +9,9 @@ export const AppBarWrapper = styled(Box)({
   padding: "0 20px",
   "@media (max-width: 600px)": {
     height: "60px",
+  },
+  "@media (max-width: 775px)": {
+    // justifyContent: "space-between",
   },
 });
 export const AppBarComputer = styled(Box)({
@@ -72,10 +76,11 @@ export const Icon = styled(Box)({
     },
   },
 });
-export const Login = styled(Box)({
+export const Login = styled(Link)({
   display: "flex",
   alignItems: "center",
   paddingLeft: "20px",
+  textDecoration: "none",
   "@media (max-width: 1100px)": {
     paddingLeft: "15px",
   },
@@ -108,6 +113,8 @@ export const AppBarMobile = styled(Box)({
   display: "none",
   "@media (max-width: 775px)": {
     display: "flex",
+    justifyContent: "space-between",
+    width: "100%",
   },
 });
 export const ButtonBarr = styled(IconButton)({

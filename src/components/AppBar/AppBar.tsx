@@ -19,6 +19,7 @@ import Box from "@mui/system/Box";
 import Badge from "@mui/material/Badge";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem/MenuItem";
+import { PagesRoutes } from "features/constants";
 
 export const AppBar: React.FC = () => {
   const [categories, setCategories] = React.useState<string[]>([]);
@@ -61,13 +62,14 @@ export const AppBar: React.FC = () => {
                   <ShoppingCartIcon color="action" />
                 </Badge>
               </Icon>
-              <Login>
+              <Login to={PagesRoutes.login}>
                 <LoginTypography>Login</LoginTypography>
               </Login>
             </IconsWrapper>
           </InfoWrapper>
         </AppBarComputer>
         <AppBarMobile>
+          <Logo />
           <ButtonBarr onClick={handleClick}>
             <MenuIcon />
           </ButtonBarr>
@@ -81,7 +83,9 @@ export const AppBar: React.FC = () => {
             }}
           >
             <MenuItem>
-              <LoginTypography>Login</LoginTypography>
+              <Login to={PagesRoutes.login}>
+                <LoginTypography>Login</LoginTypography>
+              </Login>
             </MenuItem>
             <MenuItem>
               <CategoriesTypography>My Cart</CategoriesTypography>
@@ -95,7 +99,6 @@ export const AppBar: React.FC = () => {
                 </MenuItem>
               );
             })}
-            
           </MenuMobile>
         </AppBarMobile>
       </AppBarWrapper>
