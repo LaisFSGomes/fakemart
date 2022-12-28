@@ -1,9 +1,10 @@
 import { AppBar } from "components/AppBar";
 import React from "react";
-import { Button, Container, Form, RegisterWrapper } from "./Register.styles";
+import { Button, Container, Form, LoginLink, LoginWrapper, RegisterWrapper } from "./Register.styles";
 import { Input } from "components";
 import { api } from "config/api";
 import { User } from "_utils/interfaces";
+import { PagesRoutes } from "features/constants";
 export const Register: React.FC = () => {
   const [email, setEmail] = React.useState("");
   const [username, setUsername] = React.useState("");
@@ -189,6 +190,9 @@ export const Register: React.FC = () => {
             />
             <Button type="submit">Register</Button>
           </Form>
+          <LoginWrapper>
+          Already have an account? <LoginLink to = {PagesRoutes.login} >Login</LoginLink>
+          </LoginWrapper>
         </Container>
       </RegisterWrapper>
     </React.Fragment>

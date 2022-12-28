@@ -1,5 +1,6 @@
 import { styled } from "@mui/system";
-import { Box } from "@mui/material";
+import { Box, Typography} from "@mui/material";
+import { Link } from "react-router-dom";
 
 export const RegisterWrapper = styled(Box)({
   display: "flex",
@@ -18,7 +19,9 @@ export const Container = styled(Box)({
   height: "auto",
   background: "#FFFFFF",
   borderRadius: "10px",
-  padding: "5rem",
+  padding: "5rem 5rem 1rem 5rem",
+  display: "flex",
+  flexDirection: "column",
   "@media (max-width: 1000px)": {
     padding: "3rem",
     width: "70%",
@@ -75,4 +78,14 @@ export const Button = styled("button")({
     gridColumnEnd: 2,
     width: "80%",
   },
+});
+export const LoginWrapper = styled(Typography)({
+  alignSelf: "flex-end",
+  marginTop: "1.5rem",
+  color: "#BD0034",
+});
+export const LoginLink = styled(Link)({
+  color: "#BD0034",
+  fontWeight: 600,
+  textDecoration: "underline",
 });
