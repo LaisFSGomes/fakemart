@@ -1,8 +1,10 @@
 export { AppBar } from "./AppBar";
 export { Banner } from "./Banner";
+export { BannerInfo } from "./BannerInfo";
 export { GridProduct } from "./GridProduct";
 export { Input } from "./Input";
 export { Logo } from "./Logo";
+export { PageResponsiveFlex } from "./PageResponsiveFlex";
 export { PageResponsiveGrid } from "./PageResponsiveGrid";
 export { Router } from "./Router";
 export { TextWithLimit } from "./TextWithLimit";
