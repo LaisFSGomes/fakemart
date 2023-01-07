@@ -20,7 +20,7 @@ import Badge from "@mui/material/Badge";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem/MenuItem";
 import { PagesRoutes } from "features/constants";
-
+import { CartContext } from "contexts";
 export const AppBar: React.FC = () => {
   const [categories, setCategories] = React.useState<string[]>([]);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -28,6 +28,8 @@ export const AppBar: React.FC = () => {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
+  const { getAmountItems, getTotal } = React.useContext(CartContext);
+  const itemsQuantity = getAmountItems();
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -40,6 +42,7 @@ export const AppBar: React.FC = () => {
   React.useEffect(() => {
     getCategories();
   });
+
 
   return (
     <div className="App">
@@ -58,7 +61,7 @@ export const AppBar: React.FC = () => {
             })}
             <IconsWrapper>
               <Icon>
-                <Badge badgeContent={4} color="primary">
+                <Badge badgeContent={itemsQuantity} color="primary">
                   <ShoppingCartIcon color="action" />
                 </Badge>
               </Icon>

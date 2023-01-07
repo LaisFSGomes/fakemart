@@ -1,3 +1,4 @@
+import { Rating } from "@mui/material";
 import { Banner, BannerInfo, PageResponsiveFlex } from "components";
 import { AppBar } from "components/AppBar";
 import { CartContext } from "contexts";
@@ -29,6 +30,10 @@ export const Product: React.FC = () => {
     setProduct(prod);
   }, [getProduct, location, navigate]);
 
+  const addOnCardButtonClick = () => {
+    if (product) addToCart(product);
+  }
+
   return (
     <React.Fragment>
       <AppBar />
@@ -39,7 +44,19 @@ export const Product: React.FC = () => {
           <ProductName>{product?.title}</ProductName>
           <ProductDescription>{product?.description}</ProductDescription>
           <ProductPrice>{product?.price}</ProductPrice>
-          <ProductButton>Add to cart</ProductButton>
+          {product?.rating?.rate && (
+            <>
+            <Rating
+              name="half-rating-read"
+              defaultValue={product?.rating?.rate}
+              precision={0.1}
+              readOnly
+            />
+            <span>{product?.rating?.rate} from {product?.rating?.count} reviews</span>
+            </>
+          )}
+
+          <ProductButton onClick={addOnCardButtonClick}>Add to cart</ProductButton>
         </Container>
       </PageResponsiveFlex>
       <Banner />
