@@ -11,6 +11,7 @@ import {
 // import { CartContext } from "contexts";
 import { TextWithLimit, ValueDollar } from "components";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { CartContext } from "contexts";
 
 interface GridProductProps {
   id: number;
@@ -28,17 +29,19 @@ export const GridProduct: React.FC<GridProductProps> = ({
   image,
 }) => {
   const link = useNavigate();
-//   const { addToCart } = React.useContext(CartContext);
+  const { addToCart } = React.useContext(CartContext);
+  
+  const onAddToCartButtonClick = () => {
+    addToCart({
+      id,
+      title,
+      price,
+      image,
+    });
+    console.log("Added to cart");
+  };
 
   const onCardClick = () => link(`/product/${id}`);
-//   const onAddToCartButtonClick = () => {
-//     addToCart({
-//       id,
-//       title,
-//       price,
-//       image,
-//     });
-//   };
   return (
     <CardWrapper>
       <Image src={image} alt={title} onClick={onCardClick} />
@@ -52,7 +55,7 @@ export const GridProduct: React.FC<GridProductProps> = ({
         <ValueDollar price={price} />
       </ProductPrice>
       <Button >
-        <ShoppingCartIcon />
+        <ShoppingCartIcon onClick = {onAddToCartButtonClick} />
         Add to cart
       </Button>
     </CardWrapper>

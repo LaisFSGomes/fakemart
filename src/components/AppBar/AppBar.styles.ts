@@ -36,7 +36,7 @@ export const InfoWrapper = styled(Box)({
     gap: "10px",
   },
 });
-export const CategoriesTypography = styled(Typography)({
+export const CategoriesTypography = styled(Link)({
   fontSize: "18px",
   fontWeight: 600,
   color: "#FF002F",

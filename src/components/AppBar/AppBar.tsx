@@ -21,14 +21,20 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem/MenuItem";
 import { PagesRoutes } from "features/constants";
 import { CartContext } from "contexts";
+import { useNavigate } from "react-router-dom";
 export const AppBar: React.FC = () => {
+  const link = useNavigate();
+  const onCategoryClick = (e: MouseEvent) => {
+    // link(`/category/${category}`);
+    console.log(e.target);
+  };
   const [categories, setCategories] = React.useState<string[]>([]);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
-  const { getAmountItems, getTotal } = React.useContext(CartContext);
+  const { getAmountItems } = React.useContext(CartContext);
   const itemsQuantity = getAmountItems();
   const handleClose = () => {
     setAnchorEl(null);
@@ -41,8 +47,7 @@ export const AppBar: React.FC = () => {
 
   React.useEffect(() => {
     getCategories();
-  });
-
+  }, []);
 
   return (
     <div className="App">
@@ -53,7 +58,7 @@ export const AppBar: React.FC = () => {
             {categories.map((category: any, index) => {
               return (
                 <Box key={index}>
-                  <CategoriesTypography variant="body1">
+                  <CategoriesTypography to = {`/category/${category}`} >
                     {category}
                   </CategoriesTypography>
                 </Box>
@@ -91,12 +96,12 @@ export const AppBar: React.FC = () => {
               </Login>
             </MenuItem>
             <MenuItem>
-              <CategoriesTypography>My Cart</CategoriesTypography>
+              <CategoriesTypography to = {"/"}>My Cart</CategoriesTypography>
             </MenuItem>
             {categories.map((category: any, index) => {
               return (
                 <MenuItem key={index}>
-                  <CategoriesTypography variant="body1">
+                  <CategoriesTypography to = {"/"}>
                     {category}
                   </CategoriesTypography>
                 </MenuItem>
